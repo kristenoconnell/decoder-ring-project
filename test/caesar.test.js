@@ -24,7 +24,7 @@ describe("caesar", () => {
 
     it("ignores capital letters", () => {
         const expected = "welcome";
-        const actual = caesar("Zhofrph", -3, encode = false);
+        const actual = caesar("Zhofrph", 3, encode = false);
         expect(actual).to.eql(expected);
     });
 

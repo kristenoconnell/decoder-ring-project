@@ -67,9 +67,11 @@ const polybiusModule = (function () {
 
     //DECODE
    if (!encode) {
-        if (input.length % 2 !== 0) {
+     try {
+        let inputSpaceless = input.replace(/ /g, '');
+        if (inputSpaceless.length % 2 !== 0) {
           return false;
-        } 
+        } else {
       let decoded = "";
         let splitPairs = [];
         input.split(" ").forEach((word) => {
@@ -93,8 +95,12 @@ const polybiusModule = (function () {
                   }
               })
               return decoded;
-          }
+            }
+        } catch (error) {
+          return error;
         }
+      }
+    }
 
   return {
     polybius,
