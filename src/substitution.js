@@ -18,18 +18,17 @@ const substitutionModule = (function () {
   normalAlphabet = normalAlphabet.split('');
     
   function substitution(input, alphabet, encode = true) {
-    const repeated = repeatChars(alphabet);
     let result = "";
     let matchingLetter;
     let matchingIndex;
     let encodedLetter;
 
     try {
-    if (alphabet.length !== 26 || !repeatChars(alphabet) || alphabet == null) {
+    if (!alphabet || alphabet.length !== 26 || !repeatChars(alphabet)) {
       throw false;
     } else {
         input.toLowerCase().split("").forEach((char) => {
-          if (!normalAlphabet.includes(char)) {
+          if (char == " ") {
             result += char;
             return result;
           } else {

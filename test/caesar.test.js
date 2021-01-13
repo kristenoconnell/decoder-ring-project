@@ -17,7 +17,6 @@ describe("caesar", () => {
     });
 
      it("should return false if shift is not present", () => {
-         //null for input? still put encode?
          const actual = caesar("salutations") 
          expect(actual).to.be.false;
     });
