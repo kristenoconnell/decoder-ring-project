@@ -18,10 +18,21 @@ const caesarModule = (function () {
               if (!normalAlphabet.includes(char)) {
                   result += char;
               } else {
+                let matchingLetter;
+                let encodedIndex;
+                let encodedLetter;
                 
-                    const matchingLetter = normalAlphabet.find((letter) => letter === char)
-                    const encodedIndex = (normalAlphabet.indexOf(matchingLetter) + shift) % 26;
-                    const encodedLetter = normalAlphabet[encodedIndex];
+                  matchingLetter = normalAlphabet.find((letter) => letter === char)
+                    if (encode) {
+                    encodedIndex = (normalAlphabet.indexOf(matchingLetter) + shift) % 26; 
+                    } 
+                    if (!encode) {
+                        encodedIndex = (normalAlphabet.indexOf(matchingLetter) - shift) % 26;
+                    }
+                    if (encodedIndex < 0) {
+                      encodedIndex += 26;
+                    }
+                    encodedLetter = normalAlphabet[encodedIndex];
                     result += encodedLetter
                   } 
               })
